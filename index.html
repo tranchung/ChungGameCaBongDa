@@ -123,6 +123,10 @@ var listUser= [
 {
 	"name":"quang",
 	"amout":0
+},
+{
+	"name":"phong",
+	"amout":0
 }
 ]
 var keo1 = {
@@ -132,14 +136,14 @@ var keo1 = {
 		"info":team11,
 		"users": "thanh,chung,phong",
 		"note":"",
-		"winner":null
+		"winner":"win"
 	},
 
 	"team2":{
 		"info":team21,
 		"users":  "sy,quang,loi",
 		"note":"",
-		"winner":null
+		"winner":"lose"
 	}
 };
 var keo2 = {
@@ -224,12 +228,18 @@ function tinhtien(isWinner,listPlayers){
 				
 				if(listUser[j].name == listPlayers[ind]) {
 					console.log(listUser[i].name + "===" +listPlayers[ind])
-					if(isWinner == true) {
+					if(isWinner === "win") {
 						listUser[j].amout +=50;
 						}
-					if(isWinner == false) {
+					if(isWinner === "lose") {
 						listUser[j].amout -=50;
 						}
+					if(isWinner === "win_half") {
+						listUser[j].amout +=25;
+						}
+					if(isWinner === "lose_half") {
+						listUser[j].amout -=25;
+					}
 				}
 		}
 			
