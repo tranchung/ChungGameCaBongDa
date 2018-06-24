@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body {
+		background-color: powderblue;
+	}
+	.img_background img {
+		width: 100%;
+		height: 400px;
+	}
+	.title {
+		font-size: 18px;
+		text-align: center;
+		color: black;
+		margin-top:20px;
+	}
+	.match {
+		background-color: white;	
+		margin-top: 20px;
+	}
+	.teams {
+		text-align: center;
+	}
+	.teams img {
+		width: 300px;
+		height: 300px;
+		border: solid 1px black;
+		margin-top: 10px;
+	}
+	span {
+		font-weight: bold;
+		font-size:20px;
+	}
+	.user_bets{
+		text-align: center;
+	}
+	table {
+		text-align: center;
+		background-color: pink;
+		border: dotted 1px;
+	}
+
+</style>
+	<title></title>
+</head>
+<body>
+
+<div class="img_background">
+	<img src="background.jpg">
+</div>
+<div class="title">
+	BET Kèo World Cup 
+</div>
+<div id="Wc_matchs">
+	
+</div>
+
+<script type="text/javascript">
+var team11= {
+	name:"Anh",
+	img:"england-flag.png",
+	bet:"0"
+};
+var team21= {
+	name:"Panama",
+	img:"Panama-flag.png",
+	bet:"1 3/4"
+};
+var team12= {
+	name:"Japan",
+	img:"japan-flag.png",
+	bet:"1/4"
+};
+var team22= {
+	name:"Senegal",
+	img:"senegal-flag.png",
+	bet:"0"
+};
+var team13= {
+	name:"Poland",
+	img:"poland-flag.png",
+	bet:"1/4"
+};
+var team23= {
+	name:"Colombia",
+	img:"columbia-flag.jpg",
+	bet:"0"
+};
+var listUser= [
+ {
+	"name":"chung",
+	"amout":0
+},
+ {
+	"name":"loi",
+	"amout":0
+},
+ {
+	"name":"thanh",
+	"amout":0
+},
+ {
+	"name":"sy",
+	"amout":0
+},
+{
+	"name":"thien",
+	"amout":0
+},
+ {
+	"name":"dung",
+	"amout":0
+},
+ {
+	"name":"hungba",
+	"amout":0
+},
+ {
+	"name":"son",
+	"amout":0
+},
+{
+	"name":"quang",
+	"amout":0
+}
+]
+var keo1 = {
+	"index":1,
+	"time":"19h",
+	"team1":{
+		"info":team11,
+		"users": "thanh,chung,phong",
+		"note":"hungba+2",
+		"winner":null
+	},
+
+	"team2":{
+		"info":team21,
+		"users":  "sy,quang,loi",
+		"note":"",
+		"winner":null
+	}
+};
+var keo2 = {
+	"index":2,
+	"time":"22h",
+	"team1":{
+		"info":team12,
+		"users":  "chung,quang,quang,loi,loi",
+		"note":"quảng x2, lợi x2",
+		"winner":null
+	},
+
+	"team2":{
+		"info":team22,
+		"users":  "thanh,hung,sy,dung,phong",
+		"note":"",
+		"winner":null
+	}
+};
+var keo3 = {
+	"index":3,
+	"time":"01h(Ngày Hôm Sau)",
+	"team1":{
+		"info":team13,
+		"users":  "quang,quang,loi,loi,loi",
+		"note":"quảng x2, lợi x3",
+		"winner":null
+	},
+
+	"team2":{
+		"info":team23,
+		"users":  "thanh,chung,hung,sy,dung",
+		"note":"",
+		"winner":null
+	}
+};
+
+var matchs = [keo1,keo2,keo3]
+	
+console.log(matchs)
+var x = document.getElementById("Wc_matchs")
+for (var i=0;i <= matchs.length-1;i++ ) {
+var match = matchs[i];
+	document.write(
+		"<div class='match'>"
+			+"<div class='teams'>"
+				+"<img class='team_img' src='"+match.team1.info.img+"'>   "
+				+"<img ='team_img' src='"+match.team2.info.img+"'><br>"
+				+"<span>"+match.team1.info.name+"</span>"+ "---vs---"+"<span>"+ match.team2.info.name +"</span>"+"<br>"
+				+"<span>Tỷ Lệ:</span>"+ match.team1.info.bet+ "---vs---"+ match.team2.info.bet+"<br>"
+				+"<span>Thời Gian:</span>"+match.time+"<br>"
+				+"<span>Đội Thắng:</span>"+"<br>"
+			+"</div>" 
+		+"<br>"
+		);
+	document.write(
+		"<div class='user_bets'>"
+					+"<div class='team_bet'> Chọn kèo đội tuyển "
+						+match.team1.info.name+":"
+						+"<span>"+match.team1.users+"</span><br>"
+						+"Ghi chú:"+match.team1.note+"<br>"
+					+"</div><br>"
+					+"<div class='team_bet'> Chọn kèo đội tuyển "
+						+match.team2.info.name+":"
+						+"<span>"+match.team2.users+"</span><br>"
+						+"Note:"+match.team1.note+"<br>"
+					+"</div><br>" 
+				+"</div><br>"
+		)
+}
+	
+		tinhtien(keo1.team1.winner,keo1.team1.users.split(","));
+		tinhtien(keo1.team2.winner,keo1.team2.users.split(","));
+		tinhtien(keo2.team1.winner,keo2.team1.users.split(","));
+		tinhtien(keo2.team2.winner,keo2.team2.users.split(","));
+		tinhtien(keo3.team1.winner,keo3.team1.users.split(","));
+		tinhtien(keo3.team2.winner,keo3.team2.users.split(","));
+
+function tinhtien(isWinner,listPlayers){
+	for(var j = 0; j < listUser.length;j++) {
+		for(ind = 0;ind < listPlayers.length; ind++) {
+				
+				if(listUser[j].name == listPlayers[ind]) {
+					console.log(listUser[i].name + "===" +listPlayers[ind])
+					if(isWinner == true) {
+						listUser[j].amout +=50;
+						}
+					if(isWinner == false) {
+						listUser[j].amout -=50;
+						}
+				}
+		}
+			
+	}
+}
+document.write(
+	"<table>"
+	+"<tr>"
+		+"<th>player name </th>"
+		+"<th>player budget </th>"
+	+"</tr>"
+	)
+for(var j = 0; j < listUser.length;j++) {
+	document.write(
+		"<tr>"
+			+"<td>"+ listUser[j].name + "</td>"
+			+"<td>"+ listUser[j].amout + "</td>"
+		+"</tr>"
+	)
+}
+document.write(
+	"</table>"
+	)
+</script>
+
+</body>
+</html>
