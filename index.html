@@ -132,6 +132,7 @@ var listUser= [
 var keo1 = {
 	"index":1,
 	"time":"19h",
+	"winner":"Anh",
 	"team1":{
 		"info":team11,
 		"users": "thanh,chung,phong",
@@ -149,6 +150,7 @@ var keo1 = {
 var keo2 = {
 	"index":2,
 	"time":"22h",
+	"winner":"",
 	"team1":{
 		"info":team12,
 		"users":  "chung,quang,quang,loi,loi",
@@ -166,6 +168,7 @@ var keo2 = {
 var keo3 = {
 	"index":3,
 	"time":"01h(Ngày Hôm Sau)",
+	"winner":"",
 	"team1":{
 		"info":team13,
 		"users":  "quang,quang,loi,loi,loi",
@@ -195,7 +198,7 @@ var match = matchs[i];
 				+"<span>"+match.team1.info.name+"</span>"+ "---vs---"+"<span>"+ match.team2.info.name +"</span>"+"<br>"
 				+"<span>Tỷ Lệ:</span>"+ match.team1.info.bet+ "---vs---"+ match.team2.info.bet+"<br>"
 				+"<span>Thời Gian:</span>"+match.time+"<br>"
-				+"<span>Đội Thắng:</span>"+"<br>"
+				+"<span>Đội Thắng:</span>"+match.winner +"<br>"
 			+"</div>" 
 		+"<br>"
 		);
