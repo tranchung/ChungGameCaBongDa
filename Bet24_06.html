@@ -58,164 +58,133 @@
 
 <script type="text/javascript">
 var team11= {
-	name:"Saudi Arabia",
-	img:"arabsaudi-flag.png",
+	name:"Anh",
+	img:"england-flag.png",
 	bet:"0"
 };
 var team21= {
-	name:"Egypt",
-	img:"egypte-flag.jpg",
-	bet:"0"
+	name:"Panama",
+	img:"Panama-flag.png",
+	bet:"1 3/4"
 };
 var team12= {
-	name:"Uruguay",
-	img:"uruguay-flag.png",
-	bet:"0"
+	name:"Japan",
+	img:"japan-flag.png",
+	bet:"1/4"
 };
 var team22= {
-	name:"Russia",
-	img:"russia-flag.jpg",
+	name:"Senegal",
+	img:"senegal-flag.png",
 	bet:"0"
 };
 var team13= {
-	name:"Iran",
-	img:"iran-flag.png",
-	bet:"0"
+	name:"Poland",
+	img:"poland-flag.png",
+	bet:"1/4"
 };
 var team23= {
-	name:"Portugal",
-	img:"portugal-flag.jpg",
+	name:"Colombia",
+	img:"columbia-flag.jpg",
 	bet:"0"
 };
-
-var team14= {
-	name:"Spain",
-	img:"span-flag.jpg",
-	bet:"0"
-};
-var team24= {
-	name:"Morocco",
-	img:"moroco-flag.png",
-	bet:"0"
-};
-
 var listUser= [
  {
 	"name":"chung",
-	"amout":0
+	"amout":125
 },
  {
 	"name":"loi",
-	"amout":0
+	"amout":-100
 },
  {
 	"name":"thanh",
-	"amout":0
+	"amout":25
 },
  {
 	"name":"sy",
-	"amout":0
+	"amout":-25
 },
 {
 	"name":"thien",
-	"amout":0
+	"amout":-25
 },
  {
 	"name":"dung",
-	"amout":0
+	"amout":25
 },
  {
 	"name":"hung",
-	"amout":0
+	"amout":125
 },
  {
 	"name":"son",
-	"amout":0
+	"amout":-50
 },
 {
 	"name":"quang",
-	"amout":0
+	"amout":-175
 },
 {
 	"name":"phong",
-	"amout":0
+	"amout":75
 }
 ]
 var keo1 = {
 	"index":1,
-	"time":"21h",
-	"winner":"",
+	"time":"19h",
+	"winner":"Anh",
 	"team1":{
 		"info":team11,
-		"users": "",
+		"users": "thanh,chung,phong",
 		"note":"",
-		"winner":null
+		"winner":"win"
 	},
 
 	"team2":{
 		"info":team21,
-		"users":  "",
+		"users":  "sy,quang,loi",
 		"note":"",
-		"winner":null
+		"winner":"lose"
 	}
 };
 var keo2 = {
 	"index":2,
-	"time":"21hh",
-	"winner":"",
+	"time":"22h",
+	"winner":"Hòa",
 	"team1":{
 		"info":team12,
-		"users": "",
-		"note":"",
-		"winner":null
+		"users":  "chung,quang,quang,loi,loi",
+		"note":"quảng x2, lợi x2",
+		"winner":"win_half"
 	},
 
 	"team2":{
 		"info":team22,
-		"users": "",
+		"users":  "thanh,hung,sy,dung,phong",
 		"note":"",
-		"winner":null
+		"winner":"lose_half"
 	}
 };
 var keo3 = {
 	"index":3,
 	"time":"01h(Ngày Hôm Sau)",
-	"winner":"",
+	"winner":"Colombia",
 	"team1":{
 		"info":team13,
-		"users": "",
-		"note":"",
-		"winner":null
+		"users":  "quang,quang,loi,loi,loi",
+		"note":"quảng x2, lợi x3",
+		"winner":"lose"
 	},
 
 	"team2":{
 		"info":team23,
-		"users":  "",
+		"users":  "thanh,chung,hung,sy,dung",
 		"note":"",
 		"winner":"win"
 	}
 };
 
-var keo4 = {
-	"index":4,
-	"time":"01h(Ngày Hôm Sau)",
-	"winner":"",
-	"team1":{
-		"info":team14,
-		"users":  "",
-		"note": "",
-		"winner":null
-	},
-
-	"team2":{
-		"info":team24,
-		"users":  "",
-		"note":"",
-		"winner":null
-	}
-};
-
-var matchs = [keo1,keo2,keo3,keo4]
+var matchs = [keo1,keo2,keo3]
 	
 console.log(matchs)
 var x = document.getElementById("Wc_matchs")
@@ -248,7 +217,13 @@ var match = matchs[i];
 				+"</div><br>"
 		)
 }
-
+	
+		tinhtien(keo1.team1.winner,keo1.team1.users.split(","));
+		tinhtien(keo1.team2.winner,keo1.team2.users.split(","));
+		tinhtien(keo2.team1.winner,keo2.team1.users.split(","));
+		tinhtien(keo2.team2.winner,keo2.team2.users.split(","));
+		tinhtien(keo3.team1.winner,keo3.team1.users.split(","));
+		tinhtien(keo3.team2.winner,keo3.team2.users.split(","));
 
 function tinhtien(isWinner,listPlayers){
 	for(var j = 0; j < listUser.length;j++) {
@@ -273,16 +248,6 @@ function tinhtien(isWinner,listPlayers){
 			
 	}
 }
-	
-		tinhtien(keo1.team1.winner,keo1.team1.users.split(","));
-		tinhtien(keo1.team2.winner,keo1.team2.users.split(","));
-		tinhtien(keo2.team1.winner,keo2.team1.users.split(","));
-		tinhtien(keo2.team2.winner,keo2.team2.users.split(","));
-		tinhtien(keo3.team1.winner,keo3.team1.users.split(","));
-		tinhtien(keo3.team2.winner,keo3.team2.users.split(","));
-		tinhtien(keo4.team1.winner,keo4.team1.users.split(","));
-		tinhtien(keo4.team2.winner,keo4.team2.users.split(","));
-
 document.write(
 	"<table>"
 	+"<tr>"
